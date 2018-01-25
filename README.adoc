@@ -1,0 +1,9 @@
+image:https://img.shields.io/badge/Ionic%20Version-3-green.svg[]
+image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
+image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
+
+= Secure Cordova Template
+
+A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises.
+
+For more information, please check the https://github.com/feedhenry/mobile-security[Mobile Security Project].
