@@ -40,7 +40,8 @@ webpackEmptyAsyncContext.id = 151;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,17 +53,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var HomePage = (function () {
-    function HomePage(navCtrl) {
+    function HomePage(navCtrl, keycloakService, toastCtrl) {
         this.navCtrl = navCtrl;
+        this.keycloakService = keycloakService;
+        this.toastCtrl = toastCtrl;
+        this.keycloakService = keycloakService;
+        this.toastCtrl = toastCtrl;
     }
+    HomePage.prototype.checkIfAuthenticated = function () {
+        if (this.keycloakService.isAuthenticated()) {
+            var toast = this.toastCtrl.create({
+                message: 'Authenticated Successfully',
+                duration: 3000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    HomePage.prototype.ionViewDidEnter = function () {
+        this.checkIfAuthenticated();
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/home/home.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n<ion-grid style="height: 100%">\n  <ion-row justify-content-center align-items-center style="height: 50%">\n    <img src="../../assets/imgs/fh-logo.png" class="logo">\n  </ion-row>\n  <ion-row justify-content-center align-items-center style="height: 1%">\n    <ion-label text-wrap><div text-center>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises.</div></ion-label>\n  </ion-row>\n</ion-grid>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -75,8 +96,8 @@ var HomePage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -119,7 +140,8 @@ var AuthPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,20 +153,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var AuthDetailsPage = (function () {
-    function AuthDetailsPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
+    function AuthDetailsPage(toastCtrl, navParams, keycloak) {
+        this.toastCtrl = toastCtrl;
         this.navParams = navParams;
+        this.keycloak = keycloak;
+        this.keycloak = keycloak;
+        this.profile = {};
+        this.toastCtrl = toastCtrl;
     }
-    AuthDetailsPage.prototype.itemTapped = function (event, item) {
+    AuthDetailsPage.prototype.logout = function () {
+        this.keycloak.logout();
+        var toast = this.toastCtrl.create({
+            message: 'Logged Out Successfully',
+            duration: 3000,
+            position: 'bottom'
+        });
+        toast.present();
+    };
+    AuthDetailsPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        if (this.keycloak.isAuthenticated()) {
+            this.keycloak.loadUserProfile().then(function (userProfile) {
+                var realmRoles = _this.keycloak.getRealmRoles();
+                _this.profile = {
+                    username: userProfile.username ? userProfile.username : "Unknown Username",
+                    firstName: userProfile.firstName ? userProfile.firstName : "Unknown First Name",
+                    lastName: userProfile.lastName ? userProfile.lastName : "Unknown Last Name",
+                    id: userProfile.id ? userProfile.id : "Unknown User ID",
+                    email: userProfile.email,
+                    realmRoles: realmRoles
+                };
+            })
+                .catch(function (err) { return console.error("Error retrieving user profile", err); });
+        }
+        else {
+            var toast = this.toastCtrl.create({
+                message: 'Not Authenticated',
+                duration: 3000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
     };
     AuthDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-authDetails',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/authDetails/authDetails.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Identity Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\nIdentity Profile\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/authDetails/authDetails.html"*/
+            selector: 'page-authDetails',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/authDetails/authDetails.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Identity Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid style="height: 100%">\n    <ion-row justify-content-center align-items-center>\n      <ion-card>\n\n      <ion-card-content style="text-align: center">\n        <ion-card-title>\n          <strong>{{profile.firstName}} {{profile.lastName}}</strong>\n          </ion-card-title>\n        <p>\n        {{profile.email}}\n        </p>\n      </ion-card-content>\n      </ion-card>\n\n      <ion-card>\n      <ion-card-content style="text-align: center">\n        <ion-card-title>\n          <strong>Realm Roles</strong>\n          </ion-card-title>\n            <ion-list>\n        <ion-item *ngFor="let role of profile.realmRoles">\n          <h3>{{role}}</h3>\n        </ion-item>\n      </ion-list>\n      </ion-card-content>\n    </ion-card>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="logout()">\n    <ion-title style="text-align: center">Logout</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/authDetails/authDetails.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */]) === "function" && _c || Object])
     ], AuthDetailsPage);
     return AuthDetailsPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=authDetails.js.map
@@ -157,7 +219,7 @@ var AuthDetailsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_storage_service__ = __webpack_require__(276);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -185,7 +247,7 @@ var StoragePage = (function () {
         this.notes = this.storageService.getNotes();
     };
     StoragePage.prototype.createNote = function (title, content) {
-        this.storageService.createNote();
+        this.storageService.createNote(title, content);
     };
     StoragePage.prototype.showCreateModal = function () {
         var _this = this;
@@ -241,10 +303,9 @@ var StoragePage = (function () {
             selector: 'page-storage',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Secure Storage</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >\n      <strong>{{ note.title }}</strong>\n      <small>{{ note.description }}</small>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="showCreateModal()">\n    <ion-title style="text-align: center">Create</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StoragePage);
     return StoragePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=storage.js.map
@@ -258,7 +319,7 @@ var StoragePage = (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(40);
 
 
 
@@ -281,13 +342,13 @@ __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */].
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_auth_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_auth_service__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -354,7 +415,7 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(195);
@@ -436,7 +497,7 @@ module.exports = {"realm":"secure-app","url":"https://keycloak.security.feedhenr
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -487,14 +548,14 @@ var StorageService = (function () {
         window.SecureKeyStore.set(function (value) {
         }, function (error) {
             console.log(error);
-        }, KEYSTORE_ALIAS, value);
+        }, this.KEYSTORE_ALIAS, value);
     };
     StorageService.prototype.getFromKeystore = function () {
         window.SecureKeyStore.get(function (result) {
             return result;
         }, function (error) {
             return "{}";
-        }, KEYSTORE_ALIAS);
+        }, this.KEYSTORE_ALIAS);
     };
     StorageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
@@ -512,13 +573,13 @@ var StorageService = (function () {
 
 /***/ }),
 
-/***/ 99:
+/***/ 40:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KeycloakService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -626,6 +687,12 @@ var KeycloakService = (function () {
     KeycloakService.prototype.viewGuard = function (role) {
         return true;
     };
+    /**
+     * Check if the user is authenticated
+     */
+    KeycloakService.prototype.isAuthenticated = function () {
+        return KeycloakService_1.auth.authz.authenticated;
+    };
     KeycloakService.auth = {};
     KeycloakService = KeycloakService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
@@ -633,10 +700,10 @@ var KeycloakService = (function () {
          * Contains properties of the Keycloak Service.
          */
         ,
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object])
     ], KeycloakService);
     return KeycloakService;
-    var KeycloakService_1;
+    var KeycloakService_1, _a;
 }());
 
 //# sourceMappingURL=auth.service.js.map

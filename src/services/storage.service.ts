@@ -38,7 +38,7 @@ export class StorageService {
     return notes
   }
 
-  createNote(title: String, content: String): void {
+  createNote(title: string, content: string): void {
     let note = new Note(title, content)
     this.saveNote(note)
   }
@@ -55,7 +55,7 @@ export class StorageService {
       (<any>window).SecureKeyStore.set(function (value) {
     }, function (error) {
       console.log(error);
-    }, KEYSTORE_ALIAS, value);
+    }, this.KEYSTORE_ALIAS, value);
   }
 
   getFromKeystore(): any {
@@ -63,7 +63,7 @@ export class StorageService {
         return result
     }, function (error) {
         return "{}"
-    }, KEYSTORE_ALIAS);
+    }, this.KEYSTORE_ALIAS);
   }
 
 }

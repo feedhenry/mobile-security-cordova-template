@@ -9,7 +9,6 @@ import { AlertController } from 'ionic-angular';
   providers: [StorageService]
 })
 export class StoragePage {
-
   notes: object[];
 
   constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController) {
@@ -23,7 +22,7 @@ export class StoragePage {
   }
 
   createNote(title: String, content: String) {
-    this.storageService.createNote()
+    this.storageService.createNote(title, content)
   }
 
   showCreateModal() {
@@ -74,6 +73,6 @@ export class StoragePage {
 
   ionViewDidEnter(): void {
     this.listNotes();
-    }
+  }
 
 }

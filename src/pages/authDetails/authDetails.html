@@ -8,5 +8,39 @@
 </ion-header>
 
 <ion-content>
-Identity Profile
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center>
+      <ion-card>
+
+      <ion-card-content style="text-align: center">
+        <ion-card-title>
+          <strong>{{profile.firstName}} {{profile.lastName}}</strong>
+          </ion-card-title>
+        <p>
+        {{profile.email}}
+        </p>
+      </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+      <ion-card-content style="text-align: center">
+        <ion-card-title>
+          <strong>Realm Roles</strong>
+          </ion-card-title>
+            <ion-list>
+        <ion-item *ngFor="let role of profile.realmRoles">
+          <h3>{{role}}</h3>
+        </ion-item>
+      </ion-list>
+      </ion-card-content>
+    </ion-card>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color=danger (click)="logout()">
+    <ion-title style="text-align: center">Logout</ion-title>
+  </ion-toolbar>
+</ion-footer>

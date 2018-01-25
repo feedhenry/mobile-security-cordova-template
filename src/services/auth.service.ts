@@ -104,6 +104,12 @@ export class KeycloakService {
    * @param role The role to check if the user posesses
    */
   viewGuard(role: string): boolean {
-        return true
+        return true;
+  }
+  /**
+   * Check if the user is authenticated
+   */
+  isAuthenticated(): boolean {
+      return KeycloakService.auth.authz.authenticated;
   }
 }

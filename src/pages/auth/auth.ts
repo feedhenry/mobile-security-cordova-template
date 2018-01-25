@@ -8,9 +8,6 @@ import { KeycloakService } from '../../services/auth.service';
   providers: [KeycloakService]
 })
 export class AuthPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
 
   constructor(private keycloak: KeycloakService, public navCtrl: NavController, public navParams: NavParams) {
     this.keycloak = keycloak;
