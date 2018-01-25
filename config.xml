@@ -83,4 +83,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <engine name="android" spec="~6.2.3" />
     <plugin name="cordova-plugin-secure-key-store" spec="^1.5.5" />
+    <plugin name="cordova-plugin-privacyscreen" spec="^0.4.0" />
 </widget>
