@@ -25678,6 +25678,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-accessControl .login-background {
+  background-image: url("../../assets/imgs/auth-background.png");
+}
+
+page-accessControl .radio-md.radio-disabled, page-accessControl .item-md.item-radio-disabled ion-label {
+  opacity: 1.0;
+  pointer-events: none;
+}
+
 page-auth .login-background {
   background-image: url("../../assets/imgs/auth-background.png");
 }

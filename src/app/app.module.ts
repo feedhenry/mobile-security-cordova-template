@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/storage/storage';
+import { AccessControlPage } from '../pages/accessControl/accessControl';
 
 import { KeycloakService } from '../services/auth.service';
 
@@ -20,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AuthPage,
     AuthDetailsPage,
-    StoragePage
+    StoragePage,
+    AccessControlPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AuthPage,
     AuthDetailsPage,
-    StoragePage
+    StoragePage,
+    AccessControlPage
   ],
   providers: [
     StatusBar,

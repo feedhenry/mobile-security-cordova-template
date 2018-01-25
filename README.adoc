@@ -10,6 +10,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 
 == Features
 - OpenID Connect Authentication
+- Mobile Access Control
 - 2FA with OTP (via Keycloak)
 - Authentication Brute Force Detection (via Keycloak)
 - Account Lockout Policies (via Keycloak)

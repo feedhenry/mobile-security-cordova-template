@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color=danger>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Access Control</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list radio-group>
+    <ion-list-header>
+      Realm Roles
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Superuser Access</ion-label>
+      <ion-radio checked="{{superuserRole}}" disabled="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mobile User Access</ion-label>
+      <ion-radio checked="{{mobileUserRole}}" disabled="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>API Access</ion-label>
+      <ion-radio checked="{{apiAccessRole}}" disabled="true"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -57,4 +57,8 @@
     <feature name="SecureKeyStore">
         <param name="android-package" value="com.securekeystore.plugin.SecureKeyStore" />
     </feature>
+    <feature name="PrivacyScreenPlugin">
+        <param name="android-package" value="org.devgeeks.privacyscreen.PrivacyScreenPlugin" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>

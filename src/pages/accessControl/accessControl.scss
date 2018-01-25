@@ -1,0 +1,12 @@
+page-accessControl {
+
+  .login-background {
+    background-image: url('../../assets/imgs/auth-background.png')
+  }
+
+  .radio-md.radio-disabled, .item-md.item-radio-disabled ion-label {
+    opacity: 1.0;
+    pointer-events: none;
+}
+
+}

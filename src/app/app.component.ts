@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/storage/storage';
+import { AccessControlPage } from '../pages/accessControl/accessControl';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Authentication', component: AuthPage },
       { title: 'User Identity', component: AuthDetailsPage },
+      { title: 'Access Control', component: AccessControlPage},
       { title: 'Secure Storage', component: StoragePage }
     ];
 

@@ -24,6 +24,9 @@
         },
         "cordova-plugin-secure-key-store": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-privacyscreen": {
+            "PACKAGE_NAME": "io.ionic.starter"
         }
     },
     "dependent_plugins": {}

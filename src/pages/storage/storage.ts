@@ -21,7 +21,7 @@ export class StoragePage {
     this.notes = this.storageService.getNotes()
   }
 
-  createNote(title: String, content: String) {
+  createNote(title: string, content: string) {
     this.storageService.createNote(title, content)
   }
 

@@ -42,7 +42,8 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-whitelist": "1.3.1",
     "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-secure-key-store": "1.5.4"
+    "cordova-plugin-secure-key-store": "1.5.4",
+    "cordova-plugin-privacyscreen": "0.3.1"
 };
 // BOTTOM OF METADATA
 });

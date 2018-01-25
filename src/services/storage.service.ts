@@ -51,7 +51,7 @@ export class StorageService {
 
 
 
-  saveToKeystore(value: String): void {
+  saveToKeystore(value: string): void {
       (<any>window).SecureKeyStore.set(function (value) {
     }, function (error) {
       console.log(error);
