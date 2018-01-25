@@ -8,7 +8,7 @@ import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/storage/storage';
 import { AccessControlPage } from '../pages/accessControl/accessControl';
-
+import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,11 +25,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Authentication', component: AuthPage },
-      { title: 'User Identity', component: AuthDetailsPage },
-      { title: 'Access Control', component: AccessControlPage},
-      { title: 'Secure Storage', component: StoragePage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Authentication', component: AuthPage, icon: 'lock'},
+      { title: 'User Identity', component: AuthDetailsPage, icon: 'contact' },
+      { title: 'Access Control', component: AccessControlPage, icon: 'key'},
+      { title: 'Secure Storage', component: StoragePage, icon: 'document' },
+      { title: 'Device Trust', component: DeviceTrustPage, icon: 'phone-portrait' }
     ];
 
   }
