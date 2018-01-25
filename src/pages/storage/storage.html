@@ -7,8 +7,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-
+  <ion-list>
+    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >
+      <strong>{{ note.title }}</strong>
+      <small>{{ note.description }}</small>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color=danger (click)="showCreateModal()">
+    <ion-title style="text-align: center">Create</ion-title>
+  </ion-toolbar>
+</ion-footer>

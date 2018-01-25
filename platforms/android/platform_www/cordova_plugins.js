@@ -24,6 +24,14 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
+    },
+    {
+        "id": "cordova-plugin-secure-key-store.SecureKeyStore",
+        "file": "plugins/cordova-plugin-secure-key-store/www/SecureKeyStore.js",
+        "pluginId": "cordova-plugin-secure-key-store",
+        "clobbers": [
+            "cordova.plugins.SecureKeyStore"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -33,7 +41,8 @@ module.exports.metadata =
     "cordova-plugin-ionic-webview": "1.1.16",
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-whitelist": "1.3.1",
-    "ionic-plugin-keyboard": "2.2.1"
+    "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-secure-key-store": "1.5.4"
 };
 // BOTTOM OF METADATA
 });

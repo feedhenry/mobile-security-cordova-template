@@ -2,7 +2,6 @@ declare var require: any
 import { Injectable } from '@angular/core';
 var keycloakConfig = require('../config/keycloak.json');
 import { AlertController } from 'ionic-angular';
-import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 
 declare var Keycloak: any;
 

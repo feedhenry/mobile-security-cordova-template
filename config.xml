@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Secure Cordova App</name>
-    <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises.</description>
-    <author email="tjackman@redhat.com"</author>
+    <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>
+    <author email="tjackman@redhat.com" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -82,4 +82,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-secure-key-store" spec="^1.5.5" />
 </widget>

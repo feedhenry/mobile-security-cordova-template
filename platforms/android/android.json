@@ -23,6 +23,10 @@
                         {
                             "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SecureKeyStore\"><param name=\"android-package\" value=\"com.securekeystore.plugin.SecureKeyStore\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -43,6 +47,9 @@
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-secure-key-store": {
             "PACKAGE_NAME": "io.ionic.starter"
         }
     },
@@ -72,6 +79,14 @@
                 "cordova.plugins.Keyboard"
             ],
             "runs": true
+        },
+        {
+            "id": "cordova-plugin-secure-key-store.SecureKeyStore",
+            "file": "plugins/cordova-plugin-secure-key-store/www/SecureKeyStore.js",
+            "pluginId": "cordova-plugin-secure-key-store",
+            "clobbers": [
+                "cordova.plugins.SecureKeyStore"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -79,6 +94,7 @@
         "cordova-plugin-ionic-webview": "1.1.16",
         "cordova-plugin-splashscreen": "4.0.3",
         "cordova-plugin-whitelist": "1.3.1",
-        "ionic-plugin-keyboard": "2.2.1"
+        "ionic-plugin-keyboard": "2.2.1",
+        "cordova-plugin-secure-key-store": "1.5.4"
     }
 }
