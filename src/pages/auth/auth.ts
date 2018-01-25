@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { KeycloakService } from '../../services/auth.service';
 
 @Component({
   selector: 'page-auth',
-  templateUrl: 'auth.html'
+  templateUrl: 'auth.html',
+  providers: [KeycloakService]
 })
 export class AuthPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  constructor(private keycloak: KeycloakService, public navCtrl: NavController, public navParams: NavParams) {
+    this.keycloak = keycloak;
   }
 
-  itemTapped(event, item) {
-
+  login() {
+      this.keycloak.login()
   }
 }

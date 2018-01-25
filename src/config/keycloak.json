@@ -1,0 +1,8 @@
+{
+  "realm": "secure-app",
+  "url": "https://keycloak.security.feedhenry.org/auth/",
+  "ssl-required": "external",
+  "clientId": "client-app",
+  "public-client": true,
+  "use-resource-role-mappings": true
+}

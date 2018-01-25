@@ -6,6 +6,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { AuthDetailsPage } from '../pages/authDetails/authDetails';
+import { StoragePage } from '../pages/storage/storage';
+
+import { KeycloakService } from '../services/auth.service';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     AuthPage,
-    AuthDetailsPage
+    AuthDetailsPage,
+    StoragePage
   ],
   imports: [
     BrowserModule,
@@ -26,11 +31,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     AuthPage,
-    AuthDetailsPage
+    AuthDetailsPage,
+    StoragePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    KeycloakService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

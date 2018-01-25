@@ -8,16 +8,17 @@
 </ion-header>
 
 <ion-content class="login-background">
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <img src="../../assets/imgs/oidc.png" class="logo">
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color=danger (click)="login()">
+    <ion-title style="text-align: center">Authenticate</ion-title>
+  </ion-toolbar>
+</ion-footer>
