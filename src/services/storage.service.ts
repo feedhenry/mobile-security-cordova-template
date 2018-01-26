@@ -1,69 +1,61 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 
-class Note {
-    title: string;
-    content: string;
-    constructor(title: string, content: string) {
-        this.title = title;
-        this.content = content;
-    }
-
-    getTitle() {
-        return this.title;
-    }
-
-    getDescription() {
-        return this.content;
-    }
-}
-
 @Injectable()
 /**
  * Contains properties of the Storage Service.
  */
 export class StorageService {
-
-  KEYSTORE_ALIAS: String = "keystore";
+  notes: Array<{title: string, content: string}>;
+  KEYSTORE_ALIAS: String = "mobile_store";
 
   /**
   * @param alertCtrl The ionic alert controller
   */
   constructor(public alertCtrl: AlertController) {
     this.alertCtrl = alertCtrl;
+    this.notes = [];
   }
 
   getNotes() {
-    var notes = this.getFromKeystore()
-    return notes
+    return new Promise((resolve, reject) => {
+    cordova.plugins.SecureKeyStore.get(function (result) {
+        resolve(JSON.parse(result));
+    }, function (error) {
+        console.log(error);
+        reject(error);
+    }, this.KEYSTORE_ALIAS);
+    });
   }
 
   createNote(title: string, content: string): void {
-    let note = new Note(title, content)
-    this.saveNote(note)
+    var keystoreItems = [];
+    var newNote = {title: title, content: content};
+    var self = this;
+
+    return new Promise((resolve, reject) => {
+      cordova.plugins.SecureKeyStore.get(function (result) {
+          keystoreItems = JSON.parse(result);
+          keystoreItems.push(newNote);
+          self.saveToKeystore(keystoreItems).then(() => {
+            resolve();
+          }).catch((err) => console.error("Error retrieving notes", err));
+      }, function (error) {
+          self.saveToKeystore(keystoreItems);
+          console.log(error);
+          resolve()
+      }, this.KEYSTORE_ALIAS);
+    });
   }
-
-  saveNote(note: Note) {
-  var notes = JSON.parse(this.getFromKeystore())
-  notes.add(note)
-  this.saveToKeystore(notes)
-  }
-
-
 
   saveToKeystore(value: string): void {
-      (<any>window).SecureKeyStore.set(function (value) {
+    return new Promise((resolve, reject) => {
+      cordova.plugins.SecureKeyStore.set(function (value) {
+        resolve(value);
     }, function (error) {
       console.log(error);
-    }, this.KEYSTORE_ALIAS, value);
-  }
-
-  getFromKeystore(): any {
-      (<any>window).SecureKeyStore.get(function (result) {
-        return result
-    }, function (error) {
-        return "{}"
-    }, this.KEYSTORE_ALIAS);
-  }
-
+      reject(error);
+    }, this.KEYSTORE_ALIAS, JSON.stringify(value));
+  });
+}
 }

@@ -240,10 +240,17 @@ var StoragePage = (function () {
         this.notes = [];
     }
     StoragePage.prototype.listNotes = function () {
-        this.notes = this.storageService.getNotes();
+        var _this = this;
+        this.storageService.getNotes().then(function (notes) {
+            _this.notes = notes;
+        })
+            .catch(function (err) { return console.error("Error retrieving notes", err); });
     };
     StoragePage.prototype.createNote = function (title, content) {
-        this.storageService.createNote(title, content);
+        var _this = this;
+        this.storageService.createNote(title, content).then(function (notes) {
+            _this.listNotes();
+        });
     };
     StoragePage.prototype.showCreateModal = function () {
         var _this = this;
@@ -255,8 +262,8 @@ var StoragePage = (function () {
                     placeholder: 'Title'
                 },
                 {
-                    name: 'description',
-                    placeholder: 'Description'
+                    name: 'content',
+                    placeholder: 'Content'
                 }
             ],
             buttons: [
@@ -271,7 +278,7 @@ var StoragePage = (function () {
                     text: 'Create',
                     handler: function (data) {
                         if (data.title) {
-                            _this.createNote(data.title, data.description);
+                            _this.createNote(data.title, data.content);
                         }
                         else {
                             // invalid login
@@ -286,7 +293,7 @@ var StoragePage = (function () {
     StoragePage.prototype.readNote = function (note) {
         var alert = this.alertCtrl.create({
             title: note.title,
-            subTitle: note.description,
+            subTitle: note.content,
             buttons: ['Dismiss']
         });
         alert.present();
@@ -296,12 +303,13 @@ var StoragePage = (function () {
     };
     StoragePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-storage',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Secure Storage</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >\n      <strong>{{ note.title }}</strong>\n      <small>{{ note.description }}</small>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="showCreateModal()">\n    <ion-title style="text-align: center">Create</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/,
+            selector: 'page-storage',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Secure Storage</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >\n      <strong>{{ note.title }}</strong>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="showCreateModal()">\n    <ion-title style="text-align: center">Create</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
     ], StoragePage);
     return StoragePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=storage.js.map
@@ -693,53 +701,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Note = (function () {
-    function Note(title, content) {
-        this.title = title;
-        this.content = content;
-    }
-    Note.prototype.getTitle = function () {
-        return this.title;
-    };
-    Note.prototype.getDescription = function () {
-        return this.content;
-    };
-    return Note;
-}());
 var StorageService = (function () {
     /**
     * @param alertCtrl The ionic alert controller
     */
     function StorageService(alertCtrl) {
         this.alertCtrl = alertCtrl;
-        this.KEYSTORE_ALIAS = "keystore";
+        this.KEYSTORE_ALIAS = "mobile_store";
         this.alertCtrl = alertCtrl;
+        this.notes = [];
     }
     StorageService.prototype.getNotes = function () {
-        var notes = this.getFromKeystore();
-        return notes;
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            cordova.plugins.SecureKeyStore.get(function (result) {
+                resolve(JSON.parse(result));
+            }, function (error) {
+                console.log(error);
+                reject(error);
+            }, _this.KEYSTORE_ALIAS);
+        });
     };
     StorageService.prototype.createNote = function (title, content) {
-        var note = new Note(title, content);
-        this.saveNote(note);
-    };
-    StorageService.prototype.saveNote = function (note) {
-        var notes = JSON.parse(this.getFromKeystore());
-        notes.add(note);
-        this.saveToKeystore(notes);
+        var _this = this;
+        var keystoreItems = [];
+        var newNote = { title: title, content: content };
+        var self = this;
+        return new Promise(function (resolve, reject) {
+            cordova.plugins.SecureKeyStore.get(function (result) {
+                keystoreItems = JSON.parse(result);
+                keystoreItems.push(newNote);
+                self.saveToKeystore(keystoreItems).then(function () {
+                    resolve();
+                }).catch(function (err) { return console.error("Error retrieving notes", err); });
+            }, function (error) {
+                self.saveToKeystore(keystoreItems);
+                console.log(error);
+                resolve();
+            }, _this.KEYSTORE_ALIAS);
+        });
     };
     StorageService.prototype.saveToKeystore = function (value) {
-        window.SecureKeyStore.set(function (value) {
-        }, function (error) {
-            console.log(error);
-        }, this.KEYSTORE_ALIAS, value);
-    };
-    StorageService.prototype.getFromKeystore = function () {
-        window.SecureKeyStore.get(function (result) {
-            return result;
-        }, function (error) {
-            return "{}";
-        }, this.KEYSTORE_ALIAS);
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            cordova.plugins.SecureKeyStore.set(function (value) {
+                resolve(value);
+            }, function (error) {
+                console.log(error);
+                reject(error);
+            }, _this.KEYSTORE_ALIAS, JSON.stringify(value));
+        });
     };
     StorageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
@@ -747,9 +758,10 @@ var StorageService = (function () {
          * Contains properties of the Storage Service.
          */
         ,
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object])
     ], StorageService);
     return StorageService;
+    var _a;
 }());
 
 //# sourceMappingURL=storage.service.js.map

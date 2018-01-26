@@ -12,7 +12,6 @@
   <ion-list>
     <ion-item *ngFor="let note of notes" (click)="readNote(note)" >
       <strong>{{ note.title }}</strong>
-      <small>{{ note.description }}</small>
     </ion-item>
   </ion-list>
 

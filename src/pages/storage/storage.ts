@@ -9,20 +9,25 @@ import { AlertController } from 'ionic-angular';
   providers: [StorageService]
 })
 export class StoragePage {
-  notes: Array<{title: string, description: string}>;
+  notes: Array<{title: string, content: string}>;
 
   constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.storageService = storageService
     this.alertCtrl = alertCtrl;
-    this.notes = []
+    this.notes = [];
   }
 
   listNotes() {
-    this.notes = this.storageService.getNotes()
+    this.storageService.getNotes().then((notes) => {
+      this.notes = notes;
+    })
+    .catch((err) => console.error("Error retrieving notes", err));
   }
 
   createNote(title: string, content: string) {
-    this.storageService.createNote(title, content)
+    this.storageService.createNote(title, content).then((notes) => {
+      this.listNotes();
+    });
   }
 
   showCreateModal() {
@@ -34,8 +39,8 @@ export class StoragePage {
           placeholder: 'Title'
         },
         {
-          name: 'description',
-          placeholder: 'Description'
+          name: 'content',
+          placeholder: 'Content'
         }
       ],
       buttons: [
@@ -50,7 +55,7 @@ export class StoragePage {
           text: 'Create',
           handler: data => {
             if (data.title) {
-              this.createNote(data.title, data.description)
+              this.createNote(data.title, data.content)
             } else {
               // invalid login
               return false;
@@ -65,7 +70,7 @@ export class StoragePage {
   readNote(note: any) {
   let alert = this.alertCtrl.create({
       title: note.title,
-      subTitle: note.description,
+      subTitle: note.content,
       buttons: ['Dismiss']
     });
     alert.present();

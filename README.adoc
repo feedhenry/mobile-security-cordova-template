@@ -1,8 +1,8 @@
+image:https://img.shields.io/badge/Android-Compatible-green.svg[]
+image:https://img.shields.io/badge/iOS-Compatible-green.svg[]
 image:https://img.shields.io/badge/Ionic%20Version-3-green.svg[]
 image:https://img.shields.io/badge/Angular%20Version-4-green.svg[]
 image:https://badges.frapsoft.com/typescript/code/typescript.svg?v=101[]
-image:https://img.shields.io/badge/Android-Compatible-green.svg[]
-image:https://img.shields.io/badge/iOS-Compatible-green.svg[]
 
 = Secure Cordova Template
 
@@ -14,6 +14,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - OpenID Connect Authentication
 - Mobile Access Control
 - Device Trust Checks (Root/Jailbreak Detection, Latest OS etc)
+- Secure Storage (Android Keystore, iOS Keychain)
 - Snapshot Caching Protection (iOS)
 - 2FA with OTP (via Keycloak)
 - Authentication Brute Force Detection (via Keycloak)
