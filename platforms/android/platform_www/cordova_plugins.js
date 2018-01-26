@@ -65,6 +65,22 @@ module.exports = [
         "clobbers": [
             "window.plugins.sslCertificateChecker"
         ]
+    },
+    {
+        "id": "cordova-plugin-browsertab.BrowserTab",
+        "file": "plugins/cordova-plugin-browsertab/www/browsertab.js",
+        "pluginId": "cordova-plugin-browsertab",
+        "clobbers": [
+            "cordova.plugins.browsertab"
+        ]
+    },
+    {
+        "id": "cordova-plugin-pincheck.PinCheck",
+        "file": "plugins/cordova-plugin-pincheck/www/PinCheck.js",
+        "pluginId": "cordova-plugin-pincheck",
+        "clobbers": [
+            "cordova.plugins.PinCheck"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -81,7 +97,10 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "2.0.1",
     "cordova-plugin-is-debug": "1.0.0",
     "cordova-plugin-sslcertificatechecker": "5.1.0",
-    "cordova-plugin-proguard": "1.0.0"
+    "cordova-plugin-proguard": "1.0.0",
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-browsertab": "0.2.0",
+    "cordova-plugin-pincheck": "0.0.1"
 };
 // BOTTOM OF METADATA
 });

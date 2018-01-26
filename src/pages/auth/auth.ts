@@ -4,6 +4,7 @@ import { KeycloakService } from '../../services/auth.service';
 declare var require: any
 var keycloakConfig = require('../../config/keycloak.json');
 import { ToastController } from 'ionic-angular';
+declare let window: any;
 
 @Component({
   selector: 'page-auth',
@@ -30,7 +31,7 @@ export class AuthPage {
 
   pinningFailure(message) {
     if (message == "CONNECTION_NOT_SECURE") {
-      let toast = self.toastCtrl.create({
+      let toast = this.toastCtrl.create({
          message: 'Connection Not Secure. Preventing Authentication.',
          duration: 10000,
          position: 'bottom'

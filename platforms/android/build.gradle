@@ -90,6 +90,7 @@ ext {
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "cordova-plugin-iroot/starter-build-extras.gradle"
 apply from: "cordova-plugin-proguard/secure_cordova_app-build.gradle"
+apply from: "cordova-plugin-browsertab/secure_cordova_app-BrowserTab.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -251,6 +252,7 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile(project(path: "CordovaLib", configuration: "debug"))
     releaseCompile(project(path: "CordovaLib", configuration: "release"))
+    compile "com.android.support:customtabs:23.3.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

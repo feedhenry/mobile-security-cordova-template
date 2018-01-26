@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PinCheck } from '@ionic-native/pin-check';
 declare let IRoot: any;
 declare let device: any;
 declare let cordova: any;
@@ -14,7 +15,7 @@ export class DeviceTrustPage {
   totalTests: number;
   totalDetections: number;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private pinCheck: PinCheck) {
     this.detections = [];
     this.trustScore = 0.0;
     this.totalTests = 0;
@@ -26,6 +27,7 @@ export class DeviceTrustPage {
     this.detectEmulator();
     this.detectDebug();
     this.detectLatestOS();
+    this.detectDeviceLock();
   }
 
   addDetection(label: string, detected: boolean) {
@@ -92,6 +94,14 @@ export class DeviceTrustPage {
         this.addDetection("Latest OS Version Detected", false);
       }
     }
+  }
+
+  detectDeviceLock() {
+    this.pinCheck.isPinSetup()
+    .then(
+      (success) =>  { this.addDetection("Device Lock Enabled", false)},
+      (error) =>  {this.addDetection("Device Lock Not Enabled", true)}
+    );
   }
 
   ionViewDidEnter(): void {

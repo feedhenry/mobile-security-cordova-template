@@ -42,7 +42,17 @@
         },
         "cordova-plugin-proguard": {
             "PACKAGE_NAME": "com.redhat.secure_cordova_app"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "com.redhat.secure_cordova_app"
+        },
+        "cordova-plugin-pincheck": {
+            "PACKAGE_NAME": "com.redhat.secure_cordova_app"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.redhat.secure_cordova_app"
+        }
+    }
 }

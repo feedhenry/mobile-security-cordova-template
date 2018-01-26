@@ -35,10 +35,16 @@
     <feature name="SSLCertificateChecker">
         <param name="android-package" value="nl.xservices.plugins.SSLCertificateChecker" />
     </feature>
+    <feature name="BrowserTab">
+        <param name="android-package" value="com.google.cordova.plugin.browsertab.BrowserTab" />
+    </feature>
+    <feature name="PinCheck">
+        <param name="android-package" value="cordova.plugin.pincheck.PinCheck" />
+    </feature>
     <name>Secure Cordova App</name>
     <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>
     <author email="tjackman@redhat.com" />
-    <content original-src="index.html" src="http://192.168.43.131:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
