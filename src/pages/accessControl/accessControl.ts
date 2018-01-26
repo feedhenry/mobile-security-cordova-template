@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { KeycloakService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-accessControl',
@@ -12,9 +14,10 @@ export class AccessControlPage {
   apiAccessRole: boolean;
   mobileUserRole: boolean;
 
-  constructor(public toastCtrl: ToastController, private keycloak: KeycloakService) {
+  constructor(public toastCtrl: ToastController, private keycloak: KeycloakService, public navCtrl: NavController) {
     this.keycloak = keycloak;
     this.toastCtrl = toastCtrl;
+    this.navCtrl = navCtrl;
   }
 
   ionViewDidEnter(): void {
@@ -32,6 +35,7 @@ export class AccessControlPage {
          position: 'bottom'
        });
 
+       this.navCtrl.setRoot(HomePage);
        toast.present();
       }
     }

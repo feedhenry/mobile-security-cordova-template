@@ -7,7 +7,8 @@ declare let cordova: any;
 
 @Component({
   selector: 'page-deviceTrust',
-  templateUrl: 'deviceTrust.html'
+  templateUrl: 'deviceTrust.html',
+  providers: [PinCheck]
 })
 export class DeviceTrustPage {
   detections: Array<{label: string, detected: boolean}>;
