@@ -9,7 +9,7 @@ import { AlertController } from 'ionic-angular';
   providers: [StorageService]
 })
 export class StoragePage {
-  notes: object[];
+  notes: Array<{title: string, description: string}>;
 
   constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.storageService = storageService
@@ -62,7 +62,7 @@ export class StoragePage {
     alert.present();
   }
 
-  readNote(note: object) {
+  readNote(note: any) {
   let alert = this.alertCtrl.create({
       title: note.title,
       subTitle: note.description,

@@ -27,6 +27,15 @@
         },
         "cordova-plugin-privacyscreen": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-iroot": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-is-debug": {
+            "PACKAGE_NAME": "io.ionic.starter"
         }
     },
     "dependent_plugins": {}

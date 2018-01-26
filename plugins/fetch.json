@@ -2,7 +2,7 @@
     "cordova-plugin-device": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-device@1.1.4"
+            "id": "cordova-plugin-device@^1.1.4"
         },
         "is_top_level": true,
         "variables": {}
@@ -51,6 +51,38 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-privacyscreen@^0.4.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-iroot": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-iroot@^0.4.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser@2.0.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.abarak64.screen-lock": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/abarak64/cordova-screen-lock-enabled.git"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-is-debug": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-is-debug@^1.0.0"
         },
         "is_top_level": true,
         "variables": {}

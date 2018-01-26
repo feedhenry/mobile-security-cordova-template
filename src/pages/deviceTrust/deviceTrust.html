@@ -9,6 +9,22 @@
 
 <ion-content padding>
 
-test
+  <ion-card color=danger>
+  <ion-card-content style="text-align: center">
+    <ion-card-title color=light>
+      <strong>{{trustScore}} %</strong>
+      </ion-card-title>
+      <div align="center" color=light>Trust Score</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+    <ion-item *ngFor="let detection of detections">
+      <ion-label>{{detection.label}}</ion-label>
+      <ion-radio color=danger checked="{{detection.detected}}" disabled="true"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-card>
 
 </ion-content>

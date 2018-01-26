@@ -10,6 +10,8 @@ import { StoragePage } from '../pages/storage/storage';
 import { AccessControlPage } from '../pages/accessControl/accessControl';
 import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
 
+declare let cordova: any;
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,7 +20,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -41,6 +43,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      window.open = cordova.InAppBrowser.open;
+
     });
   }
 

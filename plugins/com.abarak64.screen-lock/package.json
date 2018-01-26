@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/abarak64/cordova-screen-lock-enabled.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/abarak64/cordova-screen-lock-enabled.git",
+        "spec": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:abarak64/cordova-screen-lock-enabled.git",
+          "sshUrl": "git+ssh://git@github.com/abarak64/cordova-screen-lock-enabled.git",
+          "httpsUrl": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git",
+          "gitUrl": "git://github.com/abarak64/cordova-screen-lock-enabled.git",
+          "shortcut": "github:abarak64/cordova-screen-lock-enabled",
+          "directUrl": "https://raw.githubusercontent.com/abarak64/cordova-screen-lock-enabled/master/package.json"
+        }
+      },
+      "/home/tjackman/security/mobile-security-cordova-template/node_modules"
+    ]
+  ],
+  "_from": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git",
+  "_id": "screen-lock-enabled@0.1.0",
+  "_inCache": true,
+  "_location": "/screen-lock-enabled",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/abarak64/cordova-screen-lock-enabled.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/abarak64/cordova-screen-lock-enabled.git",
+    "spec": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:abarak64/cordova-screen-lock-enabled.git",
+      "sshUrl": "git+ssh://git@github.com/abarak64/cordova-screen-lock-enabled.git",
+      "httpsUrl": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git",
+      "gitUrl": "git://github.com/abarak64/cordova-screen-lock-enabled.git",
+      "shortcut": "github:abarak64/cordova-screen-lock-enabled",
+      "directUrl": "https://raw.githubusercontent.com/abarak64/cordova-screen-lock-enabled/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/abarak64/cordova-screen-lock-enabled.git#503ab9a1e7115fbcaa872694ba236c1b3c18736f",
+  "_shasum": "146d2d8d35a4e53803c379d22550bd316dae000b",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/abarak64/cordova-screen-lock-enabled.git",
+  "_where": "/home/tjackman/security/mobile-security-cordova-template/node_modules",
+  "author": {
+    "name": "Adam Barak"
+  },
+  "bugs": {
+    "url": "https://github.com/ABarak64/Cordova-Screen-Lock-Enabled/issues"
+  },
+  "cordova": {
+    "id": "com.abarak64.screen-lock",
+    "platforms": [
+      "android",
+      "ios",
+      "wp7"
+    ]
+  },
+  "cordovaPlatforms": [
+    "android"
+  ],
+  "cordovaPlugins": [],
+  "dependencies": {},
+  "description": "A Cordova plugin to determine if the device has a screen lock enabled.",
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "shelljs": "^0.3.0"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "gitHead": "503ab9a1e7115fbcaa872694ba236c1b3c18736f",
+  "homepage": "https://github.com/ABarak64/Cordova-Screen-Lock-Enabled#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "screen-lock-enabled",
+  "optionalDependencies": {},
+  "readme": "## Cordova-Screen-Lock-Enabled\n--\n\nThis is a Cordova plugin to determine if a device has a screen lock set for getting in. The majority of the code was cribbed from various platform-specific StackOverflow questions.\n\n#### Supported Platforms\n\n* iOS > 8.0\n* Android > 4.1\n\n#### Installing\n\nInstall with Cordova cli\n\n    $ cordova plugin add https://github.com/abarak64/cordova-screen-lock-enabled.git\n\t\n#### Usage\n\n* After getting deviceReady event;\n\n```javascript\nscreenLock.isScreenLockEnabled(success, failure);\n\nfunction success(result) {\n\tif (result) {\n\t\tconsole.log('this device has screen lock enabled.');\n\t} else {\n\t\tconsole.log('this device does not have screen lock enabled.');\n\t}\n};\n\nfunction failure(err) {\n\tconsole.log(\"Error \" + err);\n};\n```",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ABarak64/Cordova-Screen-Lock-Enabled.git"
+  },
+  "version": "0.1.0"
+}

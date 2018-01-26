@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 import { KeycloakService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
 
@@ -13,7 +12,7 @@ export class AccessControlPage {
   apiAccessRole: boolean;
   mobileUserRole: boolean;
 
-  constructor(public toastCtrl: ToastController, public navParams: NavParams, private keycloak: KeycloakService) {
+  constructor(public toastCtrl: ToastController, private keycloak: KeycloakService) {
     this.keycloak = keycloak;
     this.toastCtrl = toastCtrl;
   }

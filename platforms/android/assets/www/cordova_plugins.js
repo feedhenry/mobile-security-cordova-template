@@ -32,6 +32,31 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.SecureKeyStore"
         ]
+    },
+    {
+        "id": "cordova-plugin-iroot.IRoot",
+        "file": "plugins/cordova-plugin-iroot/www/iroot.js",
+        "pluginId": "cordova-plugin-iroot",
+        "clobbers": [
+            "IRoot"
+        ]
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "id": "cordova-plugin-is-debug.IsDebug",
+        "file": "plugins/cordova-plugin-is-debug/www/isDebug.js",
+        "pluginId": "cordova-plugin-is-debug",
+        "clobbers": [
+            "cordova.plugins.IsDebug"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -43,7 +68,10 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.1",
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-secure-key-store": "1.5.4",
-    "cordova-plugin-privacyscreen": "0.3.1"
+    "cordova-plugin-privacyscreen": "0.3.1",
+    "cordova-plugin-iroot": "0.4.0",
+    "cordova-plugin-inappbrowser": "2.0.1",
+    "cordova-plugin-is-debug": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

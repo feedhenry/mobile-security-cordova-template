@@ -1,0 +1,108 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-iroot",
+        "scope": null,
+        "escapedName": "cordova-plugin-iroot",
+        "name": "cordova-plugin-iroot",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/tjackman/security/mobile-security-cordova-template/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-iroot@latest",
+  "_id": "cordova-plugin-iroot@0.4.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-iroot",
+  "_nodeVersion": "6.8.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-iroot-0.4.0.tgz_1486905429132_0.891974117141217"
+  },
+  "_npmUser": {
+    "name": "cyberkatze",
+    "email": "elderov@gmail.com"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-iroot",
+    "scope": null,
+    "escapedName": "cordova-plugin-iroot",
+    "name": "cordova-plugin-iroot",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-iroot/-/cordova-plugin-iroot-0.4.0.tgz",
+  "_shasum": "efe3ea1ea5d46794529f26a6f39f7183d05013fb",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-iroot",
+  "_where": "/home/tjackman/security/mobile-security-cordova-template/node_modules",
+  "author": {
+    "name": "Wuglyak Bolgoink",
+    "url": "info@cyberkatze.de"
+  },
+  "bugs": {
+    "url": "https://github.com/WuglyakBolgoink/cordova-plugin-iroot/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-iroot",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova Jailbreak/Root Detection Plugin for Apache Cordova",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "efe3ea1ea5d46794529f26a6f39f7183d05013fb",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-iroot/-/cordova-plugin-iroot-0.4.0.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "3d19a7610021340cfc271912e775e3f05b8bcad9",
+  "homepage": "https://github.com/WuglyakBolgoink/cordova-plugin-iroot#readme",
+  "keywords": [
+    "cordova",
+    "jailbreak",
+    "jailbroken",
+    "cydia",
+    "detection",
+    "detector",
+    "root",
+    "rooted",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "cyberkatze",
+      "email": "elderov@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-iroot",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WuglyakBolgoink/cordova-plugin-iroot.git"
+  },
+  "scripts": {},
+  "version": "0.4.0"
+}

@@ -25688,9 +25688,14 @@ page-accessControl .radio-md.radio-disabled, page-accessControl .item-md.item-ra
 }
 
 page-auth .login-background {
-  background-image: url("../../assets/imgs/auth-background.png");
+  background-image: url("./assets/imgs/auth-background.png");
 }
 
 page-authDetails .login-background {
-  background-image: url("../../assets/imgs/auth-background.png");
+  background-image: url("./assets/imgs/auth-background.png");
+}
+
+page-deviceTrust .radio-md.radio-disabled, page-deviceTrust .item-md.item-radio-disabled ion-label {
+  opacity: 1.0;
+  pointer-events: none;
 }

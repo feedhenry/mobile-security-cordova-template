@@ -15,10 +15,27 @@
         <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <feature name="SecureKeyStore">
+        <param name="android-package" value="com.securekeystore.plugin.SecureKeyStore" />
+    </feature>
+    <feature name="PrivacyScreenPlugin">
+        <param name="android-package" value="org.devgeeks.privacyscreen.PrivacyScreenPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IRoot">
+        <param name="android-package" value="de.cyberkatze.iroot.IRoot" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="IsDebug">
+        <param name="android-package" value="me.mattlewis.isdebug.IsDebug" />
+    </feature>
+    <name>Secure Cordova App</name>
+    <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>
+    <author email="tjackman@redhat.com" />
+    <content original-src="index.html" src="http://10.201.82.109:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -26,6 +43,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="http://10.32.240.134:8100" />
+    <allow-navigation href="http://10.201.82.109:8100" />
     <allow-intent href="market:*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -54,11 +73,4 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <feature name="SecureKeyStore">
-        <param name="android-package" value="com.securekeystore.plugin.SecureKeyStore" />
-    </feature>
-    <feature name="PrivacyScreenPlugin">
-        <param name="android-package" value="org.devgeeks.privacyscreen.PrivacyScreenPlugin" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

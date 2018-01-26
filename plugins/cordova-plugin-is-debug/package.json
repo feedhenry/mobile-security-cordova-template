@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-is-debug",
+        "scope": null,
+        "escapedName": "cordova-plugin-is-debug",
+        "name": "cordova-plugin-is-debug",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/tjackman/security/mobile-security-cordova-template/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-is-debug@latest",
+  "_id": "cordova-plugin-is-debug@1.0.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-is-debug",
+  "_nodeVersion": "5.11.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-is-debug-1.0.0.tgz_1472049203898_0.8029640873428434"
+  },
+  "_npmUser": {
+    "name": "mattlewis92",
+    "email": "matthew.lewis@socialsignin.co.uk"
+  },
+  "_npmVersion": "3.10.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-is-debug",
+    "scope": null,
+    "escapedName": "cordova-plugin-is-debug",
+    "name": "cordova-plugin-is-debug",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-is-debug/-/cordova-plugin-is-debug-1.0.0.tgz",
+  "_shasum": "5bd188817cea5e1083b603ace6e99e3c17fbfe29",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-is-debug",
+  "_where": "/home/tjackman/security/mobile-security-cordova-template/node_modules",
+  "author": {
+    "name": "Matt Lewis"
+  },
+  "bugs": {
+    "url": "https://github.com/mattlewis92/cordova-plugin-is-debug/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-is-debug",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "A cordova plugin to detect if the device is running in debug mode or not.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "5bd188817cea5e1083b603ace6e99e3c17fbfe29",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-is-debug/-/cordova-plugin-is-debug-1.0.0.tgz"
+  },
+  "gitHead": "dfbe84d71f7ce4b696fee21b6f1a58ae41862259",
+  "homepage": "https://github.com/mattlewis92/cordova-plugin-is-debug#readme",
+  "keywords": [
+    "cordova",
+    "debug",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "mattlewis92",
+      "email": "matthew.lewis@socialsignin.co.uk"
+    }
+  ],
+  "name": "cordova-plugin-is-debug",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattlewis92/cordova-plugin-is-debug.git"
+  },
+  "scripts": {},
+  "version": "1.0.0"
+}
