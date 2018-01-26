@@ -31,6 +31,7 @@
         "cordova-plugin-iroot": "^0.4.0",
         "cordova-plugin-is-debug": "^1.0.0",
         "cordova-plugin-privacyscreen": "^0.4.0",
+        "cordova-plugin-proguard": "^1.0.0",
         "cordova-plugin-secure-key-store": "^1.5.5",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-sslcertificatechecker": "^5.1.0",
@@ -59,7 +60,8 @@
             "cordova-plugin-iroot": {},
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-is-debug": {},
-            "cordova-plugin-sslcertificatechecker": {}
+            "cordova-plugin-sslcertificatechecker": {},
+            "cordova-plugin-proguard": {}
         },
         "platforms": [
             "android"

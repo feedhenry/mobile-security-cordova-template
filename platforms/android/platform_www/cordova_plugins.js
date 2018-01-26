@@ -80,7 +80,8 @@ module.exports.metadata =
     "cordova-plugin-iroot": "0.4.0",
     "cordova-plugin-inappbrowser": "2.0.1",
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-sslcertificatechecker": "5.1.0"
+    "cordova-plugin-sslcertificatechecker": "5.1.0",
+    "cordova-plugin-proguard": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

@@ -16,6 +16,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Certificate Pinning
 - Device Trust Checks (Root/Jailbreak Detection, Latest OS etc)
 - Secure Storage (Android Keystore, iOS Keychain)
+- Code Obfuscation (Android)
 - Snapshot Caching Protection (iOS)
 - 2FA with OTP (via Keycloak)
 - Authentication Brute Force Detection (via Keycloak)

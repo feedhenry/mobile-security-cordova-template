@@ -39,6 +39,9 @@
         },
         "cordova-plugin-sslcertificatechecker": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-proguard": {
+            "PACKAGE_NAME": "com.redhat.secure_cordova_app"
         }
     },
     "dependent_plugins": {}
