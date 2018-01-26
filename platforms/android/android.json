@@ -43,6 +43,20 @@
                         {
                             "xml": "<feature name=\"IsDebug\"><param name=\"android-package\" value=\"me.mattlewis.isdebug.IsDebug\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SSLCertificateChecker\"><param name=\"android-package\" value=\"nl.xservices.plugins.SSLCertificateChecker\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -78,6 +92,9 @@
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "cordova-plugin-is-debug": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-sslcertificatechecker": {
             "PACKAGE_NAME": "io.ionic.starter"
         }
     },
@@ -140,6 +157,14 @@
             "clobbers": [
                 "cordova.plugins.IsDebug"
             ]
+        },
+        {
+            "id": "cordova-plugin-sslcertificatechecker.SSLCertificateChecker",
+            "file": "plugins/cordova-plugin-sslcertificatechecker/www/SSLCertificateChecker.js",
+            "pluginId": "cordova-plugin-sslcertificatechecker",
+            "clobbers": [
+                "window.plugins.sslCertificateChecker"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -152,6 +177,7 @@
         "cordova-plugin-privacyscreen": "0.3.1",
         "cordova-plugin-iroot": "0.4.0",
         "cordova-plugin-inappbrowser": "2.0.1",
-        "cordova-plugin-is-debug": "1.0.0"
+        "cordova-plugin-is-debug": "1.0.0",
+        "cordova-plugin-sslcertificatechecker": "5.1.0"
     }
 }

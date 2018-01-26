@@ -90,6 +90,13 @@ var HomePage = (function () {
 /***/ }),
 
 /***/ 196:
+/***/ (function(module, exports) {
+
+module.exports = {"realm":"secure-app","url":"https://keycloak.security.feedhenry.org/auth/","ssl-required":"external","clientId":"client-app","public-client":true,"use-resource-role-mappings":true}
+
+/***/ }),
+
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -109,31 +116,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var keycloakConfig = __webpack_require__(196);
+
 var AuthPage = (function () {
-    function AuthPage(keycloak, navCtrl, navParams) {
+    function AuthPage(toastCtrl, keycloak, navCtrl, navParams) {
+        this.toastCtrl = toastCtrl;
         this.keycloak = keycloak;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.keycloak = keycloak;
+        this.authButtonState = false;
+        this.toastCtrl = toastCtrl;
     }
     AuthPage.prototype.login = function () {
         this.keycloak.login();
     };
+    AuthPage.prototype.pinningSuccess = function (message) {
+        this.authButtonState = true;
+    };
+    AuthPage.prototype.pinningFailure = function (message) {
+        if (message == "CONNECTION_NOT_SECURE") {
+            var toast = self.toastCtrl.create({
+                message: 'Connection Not Secure. Preventing Authentication.',
+                duration: 10000,
+                position: 'bottom'
+            });
+            toast.present();
+            this.authButtonState = false;
+        }
+    };
+    AuthPage.prototype.ionViewDidEnter = function () {
+        var server = keycloakConfig.url;
+        var fingerprint = "44 C8 9A 60 4E 29 82 85 8E 4F 75 1F 78 46 CD B3 0A 08 66 3F";
+        var self = this;
+        window.plugins.sslCertificateChecker.check(self.pinningSuccess, self.pinningFailure, server, fingerprint);
+    };
     AuthPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-auth',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/auth/auth.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Authentication</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="login-background">\n\n  <ion-grid style="height: 100%">\n    <ion-row justify-content-center align-items-center style="height: 100%">\n      <img src="./assets/imgs/oidc.png" class="logo">\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="login()">\n    <ion-title style="text-align: center">Authenticate</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/auth/auth.html"*/,
+            selector: 'page-auth',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/auth/auth.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Authentication</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content style="background-image: url(\'./assets/imgs/auth-background.png\')">\n\n  <ion-grid style="height: 100%">\n    <ion-row justify-content-center align-items-center style="height: 100%">\n      <img src="./assets/imgs/oidc.png" class="logo">\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n\n<ion-footer *ngIf="authButtonState">\n  <ion-toolbar color=danger (click)="login()">\n    <ion-title style="text-align: center">Authenticate</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/auth/auth.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _d || Object])
     ], AuthPage);
     return AuthPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=auth.js.map
 
 /***/ }),
 
-/***/ 197:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -209,7 +242,7 @@ var AuthDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -306,17 +339,16 @@ var StoragePage = (function () {
             selector: 'page-storage',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Secure Storage</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >\n      <strong>{{ note.title }}</strong>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar color=danger (click)="showCreateModal()">\n    <ion-title style="text-align: center">Create</ion-title>\n  </ion-toolbar>\n</ion-footer>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/storage/storage.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_storage_service__["a" /* StorageService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StoragePage);
     return StoragePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=storage.js.map
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -376,7 +408,7 @@ var AccessControlPage = (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -479,23 +511,22 @@ var DeviceTrustPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-deviceTrust',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Device Trust</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-card color=danger>\n  <ion-card-content style="text-align: center">\n    <ion-card-title color=light>\n      <strong>{{trustScore}} %</strong>\n      </ion-card-title>\n      <div align="center" color=light>Trust Score</div>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-list>\n    <ion-item *ngFor="let detection of detections">\n      <ion-label>{{detection.label}}</ion-label>\n      <ion-radio color=danger checked="{{detection.detected}}" disabled="true"></ion-radio>\n    </ion-item>\n  </ion-list>\n</ion-card>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], DeviceTrustPage);
     return DeviceTrustPage;
-    var _a;
 }());
 
 //# sourceMappingURL=deviceTrust.js.map
 
 /***/ }),
 
-/***/ 201:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
 
 
@@ -512,7 +543,7 @@ __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */].
 
 /***/ }),
 
-/***/ 225:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -520,13 +551,13 @@ __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */].
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth_service__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(194);
@@ -594,7 +625,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -604,11 +635,11 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -673,13 +704,6 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 277:
-/***/ (function(module, exports) {
-
-module.exports = {"realm":"secure-app","url":"https://keycloak.security.feedhenry.org/auth/","ssl-required":"external","clientId":"client-app","public-client":true,"use-resource-role-mappings":true}
 
 /***/ }),
 
@@ -758,10 +782,9 @@ var StorageService = (function () {
          * Contains properties of the Storage Service.
          */
         ,
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], StorageService);
     return StorageService;
-    var _a;
 }());
 
 //# sourceMappingURL=storage.service.js.map
@@ -785,7 +808,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var keycloakConfig = __webpack_require__(277);
+var keycloakConfig = __webpack_require__(196);
 
 var KeycloakService = (function () {
     /**
@@ -905,5 +928,5 @@ var KeycloakService = (function () {
 
 /***/ })
 
-},[201]);
+},[202]);
 //# sourceMappingURL=main.js.map

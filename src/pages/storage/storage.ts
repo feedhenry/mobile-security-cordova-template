@@ -9,7 +9,7 @@ import { AlertController } from 'ionic-angular';
   providers: [StorageService]
 })
 export class StoragePage {
-  notes: Array<{title: string, content: string}>;
+  notes: any;
 
   constructor(private storageService: StorageService, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.storageService = storageService

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
+declare let cordova: any;
 
 @Injectable()
 /**
@@ -28,7 +29,7 @@ export class StorageService {
     });
   }
 
-  createNote(title: string, content: string): void {
+  createNote(title: string, content: string) {
     var keystoreItems = [];
     var newNote = {title: title, content: content};
     var self = this;
@@ -48,7 +49,7 @@ export class StorageService {
     });
   }
 
-  saveToKeystore(value: string): void {
+  saveToKeystore(value: object) {
     return new Promise((resolve, reject) => {
       cordova.plugins.SecureKeyStore.set(function (value) {
         resolve(value);

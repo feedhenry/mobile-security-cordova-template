@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.redhat.secure-cordova-app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
@@ -31,6 +31,9 @@
     </feature>
     <feature name="IsDebug">
         <param name="android-package" value="me.mattlewis.isdebug.IsDebug" />
+    </feature>
+    <feature name="SSLCertificateChecker">
+        <param name="android-package" value="nl.xservices.plugins.SSLCertificateChecker" />
     </feature>
     <name>Secure Cordova App</name>
     <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>

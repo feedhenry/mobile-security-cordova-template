@@ -13,6 +13,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 == Features
 - OpenID Connect Authentication
 - Mobile Access Control
+- Certificate Pinning
 - Device Trust Checks (Root/Jailbreak Detection, Latest OS etc)
 - Secure Storage (Android Keystore, iOS Keychain)
 - Snapshot Caching Protection (iOS)

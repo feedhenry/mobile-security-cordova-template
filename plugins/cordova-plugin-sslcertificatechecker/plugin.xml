@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-sslcertificatechecker"
+        version="5.1.0">
+
+  <name>SSL Certificate Checker</name>
+
+  <description>
+    This plugin allows allows you to check the SSL Certificate of the server you're connecting to.
+    This can be useful for prevention of Man In The Middle attacks.
+  </description>
+
+  <keywords>Certificate, SSL, Pinning, Man in the Middle, MitM</keywords>
+
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module name="SSLCertificateChecker" src="www/SSLCertificateChecker.js">
+    <clobbers target="window.plugins.sslCertificateChecker" />
+  </js-module>
+
+  <!-- ios -->
+ 	<platform name="ios">
+ 		<config-file target="config.xml" parent="/*">
+ 			<feature name="SSLCertificateChecker">
+ 				<param name="ios-package" value="SSLCertificateChecker" />
+ 			</feature>
+ 		</config-file>
+ 		<header-file src="src/ios/SSLCertificateChecker.h" />
+ 		<source-file src="src/ios/SSLCertificateChecker.m" />
+		<framework src="Security.framework" />
+ 	</platform>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="SSLCertificateChecker">
+        <param name="android-package" value="nl.xservices.plugins.SSLCertificateChecker" />
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+    <source-file src="src/android/nl/xservices/plugins/SSLCertificateChecker.java" target-dir="src/nl/xservices/plugins"/>
+  </platform>
+
+  <!-- windows -->
+  <platform name="windows">
+    <js-module src="src/windows/sslCertCheckPluginProxy.js" name="SSLCertCheckProxy">
+      <merges target="" />
+    </js-module>
+  </platform>
+
+</plugin>

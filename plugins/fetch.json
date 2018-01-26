@@ -86,5 +86,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-sslcertificatechecker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-sslcertificatechecker"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

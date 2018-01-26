@@ -57,6 +57,14 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.IsDebug"
         ]
+    },
+    {
+        "id": "cordova-plugin-sslcertificatechecker.SSLCertificateChecker",
+        "file": "plugins/cordova-plugin-sslcertificatechecker/www/SSLCertificateChecker.js",
+        "pluginId": "cordova-plugin-sslcertificatechecker",
+        "clobbers": [
+            "window.plugins.sslCertificateChecker"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -71,7 +79,8 @@ module.exports.metadata =
     "cordova-plugin-privacyscreen": "0.3.1",
     "cordova-plugin-iroot": "0.4.0",
     "cordova-plugin-inappbrowser": "2.0.1",
-    "cordova-plugin-is-debug": "1.0.0"
+    "cordova-plugin-is-debug": "1.0.0",
+    "cordova-plugin-sslcertificatechecker": "5.1.0"
 };
 // BOTTOM OF METADATA
 });

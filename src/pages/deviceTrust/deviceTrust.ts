@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 declare let IRoot: any;
 declare let device: any;
+declare let cordova: any;
 
 @Component({
   selector: 'page-deviceTrust',

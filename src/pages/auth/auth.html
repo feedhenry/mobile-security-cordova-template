@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="login-background">
+<ion-content style="background-image: url('./assets/imgs/auth-background.png')">
 
   <ion-grid style="height: 100%">
     <ion-row justify-content-center align-items-center style="height: 100%">
@@ -17,7 +17,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="authButtonState">
   <ion-toolbar color=danger (click)="login()">
     <ion-title style="text-align: center">Authenticate</ion-title>
   </ion-toolbar>

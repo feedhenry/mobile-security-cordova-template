@@ -36,6 +36,9 @@
         },
         "cordova-plugin-is-debug": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-sslcertificatechecker": {
+            "PACKAGE_NAME": "io.ionic.starter"
         }
     },
     "dependent_plugins": {}
