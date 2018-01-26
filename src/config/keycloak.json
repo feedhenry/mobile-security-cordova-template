@@ -4,5 +4,6 @@
   "ssl-required": "external",
   "clientId": "client-app",
   "public-client": true,
-  "use-resource-role-mappings": true
+  "use-resource-role-mappings": true,
+  "pinningFingerprint": "44 C8 9A 60 4E 29 82 85 8E 4F 75 1F 78 46 CD B3 0A 08 66 3F"
 }
