@@ -9,6 +9,8 @@ import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/storage/storage';
 import { AccessControlPage } from '../pages/accessControl/accessControl';
 import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
+import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
+
 
 import { KeycloakService } from '../services/auth.service';
 
@@ -44,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     KeycloakService,
+    SecureStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

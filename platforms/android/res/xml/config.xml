@@ -41,6 +41,9 @@
     <feature name="PinCheck">
         <param name="android-package" value="cordova.plugin.pincheck.PinCheck" />
     </feature>
+    <feature name="SecureStorage">
+        <param name="android-package" value="com.crypho.plugins.SecureStorage" />
+    </feature>
     <name>Secure Cordova App</name>
     <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>
     <author email="tjackman@redhat.com" />

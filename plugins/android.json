@@ -48,6 +48,9 @@
         },
         "cordova-plugin-pincheck": {
             "PACKAGE_NAME": "com.redhat.secure_cordova_app"
+        },
+        "cordova-plugin-secure-storage": {
+            "PACKAGE_NAME": "com.redhat.secure_cordova_app"
         }
     },
     "dependent_plugins": {

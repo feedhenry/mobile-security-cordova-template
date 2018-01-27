@@ -81,6 +81,20 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.PinCheck"
         ]
+    },
+    {
+        "id": "cordova-plugin-secure-storage.SecureStorage",
+        "file": "plugins/cordova-plugin-secure-storage/www/securestorage.js",
+        "pluginId": "cordova-plugin-secure-storage",
+        "clobbers": [
+            "SecureStorage"
+        ]
+    },
+    {
+        "id": "cordova-plugin-secure-storage.sjcl_ss",
+        "file": "plugins/cordova-plugin-secure-storage/www/sjcl_ss.js",
+        "pluginId": "cordova-plugin-secure-storage",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -100,7 +114,8 @@ module.exports.metadata =
     "cordova-plugin-proguard": "1.0.0",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-browsertab": "0.2.0",
-    "cordova-plugin-pincheck": "0.0.1"
+    "cordova-plugin-pincheck": "0.0.1",
+    "cordova-plugin-secure-storage": "2.6.8"
 };
 // BOTTOM OF METADATA
 });

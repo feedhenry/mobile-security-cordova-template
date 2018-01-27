@@ -199,7 +199,7 @@ var AuthDetailsPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoragePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_storage_service__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_storage_service__ = __webpack_require__(279);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -298,7 +298,7 @@ var StoragePage = (function () {
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -352,7 +352,7 @@ var AccessControlPage = (function () {
     };
     AccessControlPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-accessControl',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/accessControl/accessControl.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Access Control</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list radio-group>\n    <ion-list-header>\n      Realm Roles\n    </ion-list-header>\n\n    <ion-item>\n      <ion-label>Superuser Access</ion-label>\n      <ion-radio checked="{{superuserRole}}" disabled="true"></ion-radio>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Mobile User Access</ion-label>\n      <ion-radio checked="{{mobileUserRole}}" disabled="true"></ion-radio>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>API Access</ion-label>\n      <ion-radio checked="{{apiAccessRole}}" disabled="true"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/accessControl/accessControl.html"*/,
+            selector: 'page-accessControl',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/accessControl/accessControl.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Access Control</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list radio-group>\n    <ion-item>\n      <ion-label>Superuser Access</ion-label>\n      <ion-radio checked="{{superuserRole}}" disabled="true"></ion-radio>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Mobile User Access</ion-label>\n      <ion-radio checked="{{mobileUserRole}}" disabled="true"></ion-radio>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>API Access</ion-label>\n      <ion-radio checked="{{apiAccessRole}}" disabled="true"></ion-radio>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/accessControl/accessControl.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* KeycloakService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* KeycloakService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]])
@@ -364,14 +364,14 @@ var AccessControlPage = (function () {
 
 /***/ }),
 
-/***/ 201:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeviceTrustPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_pin_check__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_pin_check__ = __webpack_require__(280);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -486,13 +486,13 @@ var DeviceTrustPage = (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
 
 
@@ -509,7 +509,7 @@ __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */].
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -517,22 +517,24 @@ __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* KeycloakService */].
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth_service__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_secure_storage__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_auth_service__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -577,9 +579,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__["a" /* DeviceTrustPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_10__services_auth_service__["a" /* KeycloakService */],
+                __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_11__services_auth_service__["a" /* KeycloakService */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_secure_storage__["a" /* SecureStorage */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
@@ -591,7 +594,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -604,8 +607,8 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_auth_auth__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_authDetails_authDetails__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_storage_storage__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_accessControl_accessControl__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_deviceTrust_deviceTrust__ = __webpack_require__(202);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -673,13 +676,14 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_secure_storage__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -691,44 +695,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var StorageService = (function () {
     /**
     * @param alertCtrl The ionic alert controller
     */
-    function StorageService(alertCtrl) {
+    function StorageService(alertCtrl, secureStorage) {
+        var _this = this;
         this.alertCtrl = alertCtrl;
-        this.KEYSTORE_ALIAS = "mobile_store";
+        this.secureStorage = secureStorage;
+        this.KEYSTORE_ALIAS = "keystore_mobile";
         this.alertCtrl = alertCtrl;
         this.notes = [];
+        this.secureStorage.create(this.KEYSTORE_ALIAS)
+            .then(function (storage) {
+            _this.secureStorageObject = storage;
+        });
     }
     StorageService.prototype.getNotes = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            cordova.plugins.SecureKeyStore.get(function (result) {
-                resolve(JSON.parse(result));
-            }, function (error) {
-                console.log(error);
-                reject(error);
-            }, _this.KEYSTORE_ALIAS);
+            _this.secureStorageObject.get(_this.KEYSTORE_ALIAS)
+                .then(function (data) { return resolve(JSON.parse(data)); }, function (error) { return resolve([]); });
         });
     };
     StorageService.prototype.createNote = function (title, content) {
         var _this = this;
-        var keystoreItems = [];
+        var keystoreItems;
         var newNote = { title: title, content: content };
         var self = this;
         return new Promise(function (resolve, reject) {
-            cordova.plugins.SecureKeyStore.get(function (result) {
-                keystoreItems = JSON.parse(result);
+            _this.getNotes().then(function (notes) {
+                keystoreItems = notes;
                 keystoreItems.push(newNote);
-                self.saveToKeystore(keystoreItems).then(function () {
-                    resolve();
-                }).catch(function (err) { return console.error("Error retrieving notes", err); });
-            }, function (error) {
-                self.saveToKeystore(keystoreItems);
-                console.log(error);
-                resolve();
-            }, _this.KEYSTORE_ALIAS);
+                _this.secureStorageObject.set(_this.KEYSTORE_ALIAS, JSON.stringify(keystoreItems))
+                    .then(function (data) { return resolve(keystoreItems); }, function (error) { return reject(error); });
+            })
+                .catch(function (err) { return console.error("Error retrieving notes", err); });
         });
     };
     StorageService.prototype.saveToKeystore = function (value) {
@@ -743,12 +747,15 @@ var StorageService = (function () {
         });
     };
     StorageService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            providers: [__WEBPACK_IMPORTED_MODULE_2__ionic_native_secure_storage__["a" /* SecureStorage */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_secure_storage__["b" /* SecureStorageObject */]]
+        })
         /**
          * Contains properties of the Storage Service.
          */
         ,
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_secure_storage__["a" /* SecureStorage */]])
     ], StorageService);
     return StorageService;
 }());
@@ -949,5 +956,5 @@ var HomePage = (function () {
 
 /***/ })
 
-},[202]);
+},[203]);
 //# sourceMappingURL=main.js.map

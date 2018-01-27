@@ -92,4 +92,5 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <allow-navigation href="http://192.168.43.131:8100" />
     <plugin name="cordova-plugin-pincheck" spec="0.0.5" />
+    <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
 </widget>
