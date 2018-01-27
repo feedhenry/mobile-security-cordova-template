@@ -9,6 +9,7 @@ import { AuthDetailsPage } from '../pages/authDetails/authDetails';
 import { StoragePage } from '../pages/storage/storage';
 import { AccessControlPage } from '../pages/accessControl/accessControl';
 import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
+import { NetworkPage } from '../pages/network/network';
 
 declare let cordova: any;
 
@@ -32,6 +33,7 @@ export class MyApp {
       { title: 'User Identity', component: AuthDetailsPage, icon: 'contact' },
       { title: 'Access Control', component: AccessControlPage, icon: 'key'},
       { title: 'Secure Storage', component: StoragePage, icon: 'document' },
+      { title: 'Network', component: NetworkPage, icon: 'wifi' },
       { title: 'Device Trust', component: DeviceTrustPage, icon: 'phone-portrait' }
     ];
 

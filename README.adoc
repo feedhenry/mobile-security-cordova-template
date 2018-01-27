@@ -19,6 +19,7 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Secure Storage (Android Keystore, iOS Keychain)
 - Code Obfuscation (Android)
 - Snapshot Caching Protection (iOS)
+- Authenticated Calls to Protected Endpoints
 - 2FA with OTP (via Keycloak)
 - Authentication Brute Force Detection (via Keycloak)
 - Account Lockout Policies (via Keycloak)

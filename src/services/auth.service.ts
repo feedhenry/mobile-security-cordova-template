@@ -27,7 +27,7 @@ export class KeycloakService {
     let keycloakAuth: any = new Keycloak(keycloakConfig);
 
       return new Promise((resolve, reject) => {
-        keycloakAuth.init().success(() => {
+        keycloakAuth.init({onLoad: 'check-sso'}).success(() => {
             KeycloakService.auth.authz = keycloakAuth;
             resolve();
           }).error((err) => {
@@ -35,6 +35,12 @@ export class KeycloakService {
           });
       });
     }
+  /**
+  * Get Access Token
+  */
+  getToken(): string {
+  return KeycloakService.auth.authz.token;
+  }
   /**
   * Redirect to logout
   */

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { KeycloakService } from '../../services/auth.service';
-declare var require: any
-var keycloakConfig = require('../../config/keycloak.json');
 import { ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+declare var require: any
+var keycloakConfig = require('../../config/keycloak.json');
 declare let window: any;
 
 @Component({

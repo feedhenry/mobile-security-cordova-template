@@ -10,11 +10,12 @@ import { StoragePage } from '../pages/storage/storage';
 import { AccessControlPage } from '../pages/accessControl/accessControl';
 import { DeviceTrustPage } from '../pages/deviceTrust/deviceTrust';
 import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
+import { NetworkPage } from '../pages/network/network';
 
 
 import { KeycloakService } from '../services/auth.service';
 
-
+import { HttpModule } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -26,9 +27,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AuthDetailsPage,
     StoragePage,
     AccessControlPage,
-    DeviceTrustPage
+    DeviceTrustPage,
+    NetworkPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -40,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AuthDetailsPage,
     StoragePage,
     AccessControlPage,
-    DeviceTrustPage
+    DeviceTrustPage,
+    NetworkPage
   ],
   providers: [
     StatusBar,
