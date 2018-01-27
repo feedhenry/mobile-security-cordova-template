@@ -9,20 +9,23 @@
 
 <ion-content>
 
-  <ion-list radio-group>
+  <ion-list>
     <ion-item>
       <ion-label>Superuser Access</ion-label>
-      <ion-radio checked="{{superuserRole}}" disabled="true"></ion-radio>
+      <ion-icon item-end color=secondary name="key" *ngIf=superuserRole></ion-icon>
+      <ion-icon item-end color=danger name="key" *ngIf=!superuserRole></ion-icon>
     </ion-item>
 
     <ion-item>
       <ion-label>Mobile User Access</ion-label>
-      <ion-radio checked="{{mobileUserRole}}" disabled="true"></ion-radio>
+      <ion-icon item-end color=secondary name="key" *ngIf=mobileUserRole></ion-icon>
+      <ion-icon item-end color=danger name="key" *ngIf=!mobileUserRole></ion-icon>
     </ion-item>
 
     <ion-item>
       <ion-label>API Access</ion-label>
-      <ion-radio checked="{{apiAccessRole}}" disabled="true"></ion-radio>
+      <ion-icon item-end color=secondary name="key" *ngIf=apiAccessRole></ion-icon>
+      <ion-icon item-end color=danger name="key" *ngIf=!apiAccessRole></ion-icon>
     </ion-item>
   </ion-list>
 

@@ -1,0 +1,64 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.abarak64.screen-lock": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-ionic-webview": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-iroot": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-is-debug": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-pincheck": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-privacyscreen": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-proguard": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-secure-key-store": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-secure-storage": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-sslcertificatechecker": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.redhat.secure-cordova-app"
+        }
+    }
+}
