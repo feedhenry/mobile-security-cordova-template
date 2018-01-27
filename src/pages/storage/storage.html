@@ -10,8 +10,9 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let note of notes" (click)="readNote(note)" >
-      <strong>{{ note.title }}</strong>
+    <ion-item *ngFor="let note of notes" (click)="readNote(note)" detail-push>
+      <h3>{{ note.title }}</h3>
+      <p>{{ note.content }}</p>
     </ion-item>
   </ion-list>
 

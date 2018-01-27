@@ -41,7 +41,9 @@ export class AuthDetailsPage {
           lastName: userProfile.lastName ? userProfile.lastName : "Unknown Last Name",
           id: userProfile.id ? userProfile.id : "Unknown User ID",
           email: userProfile.email,
-          realmRoles: realmRoles
+          realmRoles: realmRoles,
+          totp: userProfile.totp ? userProfile.totp : false,
+          emailVerified: userProfile.emailVerified ? userProfile.emailVerified : false
         };
       })
       .catch((err) => console.error("Error retrieving user profile", err));
