@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.redhat.secure-cordova-app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.redhat.secure-cordova-app" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Secure Cordova App</name>
     <description>A Hybrid Cordova Application for iOS and Android that demonstrates Secure Mobile Development Practises</description>
     <author email="tjackman@redhat.com" />
@@ -78,19 +78,20 @@
     </platform>
     <allow-navigation href="http://10.32.240.134:8100" />
     <allow-navigation href="http://10.201.82.109:8100" />
+    <allow-navigation href="http://192.168.43.131:8100" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-iroot" spec="^0.4.0" />
     <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />
+    <plugin name="cordova-plugin-pincheck" spec="0.0.5" />
     <plugin name="cordova-plugin-privacyscreen" spec="^0.4.0" />
+    <plugin name="cordova-plugin-proguard" spec="^1.0.0" />
     <plugin name="cordova-plugin-secure-key-store" spec="^1.5.5" />
+    <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-sslcertificatechecker" spec="^5.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <allow-navigation href="http://192.168.43.131:8100" />
-    <plugin name="cordova-plugin-pincheck" spec="0.0.5" />
-    <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
 </widget>
