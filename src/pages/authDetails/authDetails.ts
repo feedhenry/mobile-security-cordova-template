@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { KeycloakService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { AuthPage } from '../auth/auth';
 
 @Component({
   selector: 'page-authDetails',
@@ -46,7 +46,7 @@ export class AuthDetailsPage {
       })
       .catch((err) => console.error("Error retrieving user profile", err));
     } else {
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(AuthPage);
       let toast = this.toastCtrl.create({
          message: 'Not Authenticated',
          duration: 3000,

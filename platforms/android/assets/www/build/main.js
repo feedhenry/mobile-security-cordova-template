@@ -474,7 +474,7 @@ var DeviceTrustPage = (function () {
     };
     DeviceTrustPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-deviceTrust',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Device Trust</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-card color=danger>\n  <ion-card-content style="text-align: center">\n    <ion-card-title color=light>\n      <strong>{{trustScore}} %</strong>\n      </ion-card-title>\n      <div align="center" color=light>Trust Score</div>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-list>\n    <ion-item *ngFor="let detection of detections">\n      <ion-label>{{detection.label}}</ion-label>\n      <ion-radio color=danger checked="{{detection.detected}}" disabled="true"></ion-radio>\n    </ion-item>\n  </ion-list>\n</ion-card>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/,
+            selector: 'page-deviceTrust',template:/*ion-inline-start:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/`<ion-header>\n  <ion-navbar color=danger>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Device Trust</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card color=danger>\n  <ion-card-content style="text-align: center">\n    <ion-card-title color=light>\n      <strong>{{trustScore}} %</strong>\n      </ion-card-title>\n      <div align="center" color=light>Trust Score</div>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n    <ion-list>\n    <ion-item *ngFor="let detection of detections">\n      <ion-label>{{detection.label}}</ion-label>\n      <ion-radio color=danger checked="{{detection.detected}}" disabled="true"></ion-radio>\n    </ion-item>\n  </ion-list>\n</ion-card>\n\n</ion-content>\n`/*ion-inline-end:"/home/tjackman/security/mobile-security-cordova-template/src/pages/deviceTrust/deviceTrust.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__ionic_native_pin_check__["a" /* PinCheck */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_pin_check__["a" /* PinCheck */]])
@@ -733,17 +733,6 @@ var StorageService = (function () {
                     .then(function (data) { return resolve(keystoreItems); }, function (error) { return reject(error); });
             })
                 .catch(function (err) { return console.error("Error retrieving notes", err); });
-        });
-    };
-    StorageService.prototype.saveToKeystore = function (value) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            cordova.plugins.SecureKeyStore.set(function (value) {
-                resolve(value);
-            }, function (error) {
-                console.log(error);
-                reject(error);
-            }, _this.KEYSTORE_ALIAS, JSON.stringify(value));
         });
     };
     StorageService = __decorate([

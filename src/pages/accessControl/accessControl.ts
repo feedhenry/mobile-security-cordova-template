@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { KeycloakService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { AuthPage } from '../auth/auth';
 
 @Component({
   selector: 'page-accessControl',
@@ -35,7 +35,7 @@ export class AccessControlPage {
          position: 'bottom'
        });
 
-       this.navCtrl.setRoot(HomePage);
+       this.navCtrl.setRoot(AuthPage);
        toast.present();
       }
     }
