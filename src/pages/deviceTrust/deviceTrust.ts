@@ -109,6 +109,4 @@ export class DeviceTrustPage {
     this.performChecks();
   }
 
-
-
 }

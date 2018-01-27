@@ -6,9 +6,18 @@
   </ion-header>
 
   <ion-content>
+    <ion-card>
+      <ion-item color=dark>
+      <ion-avatar item-start>
+        <img src="./assets/imgs/fh-logo.png">
+      </ion-avatar>
+      <p color=light>FeedHenry</p>
+      <p color=light>www.feedhenry.org</p>
+    </ion-item>
+    </ion-card>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.icon}}" item-start></ion-icon>
+        <ion-icon color=dark name="{{p.icon}}" item-start></ion-icon>
         <span align="center">{{p.title}}</span>
       </button>
     </ion-list>
