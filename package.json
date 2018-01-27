@@ -1,8 +1,8 @@
 {
     "name": "mobile-security-cordova-template",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "version": "0.0.2",
+    "author": "tjackman@redhat.com",
+    "homepage": "http://www.feedhenry.org/",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
