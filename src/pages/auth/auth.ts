@@ -30,6 +30,7 @@ export class AuthPage {
     var server = keycloakConfig.url;
     var fingerprint = keycloakConfig.pinningFingerprint;
 
+    // tag::certPinning[]
     window.plugins.sslCertificateChecker.check(
             function() {
                 // success
@@ -48,5 +49,6 @@ export class AuthPage {
             }.bind(this),
             server,
             fingerprint);
+      // end::certPinning[]
   }
 }
