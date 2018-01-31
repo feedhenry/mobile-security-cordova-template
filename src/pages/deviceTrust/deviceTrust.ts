@@ -42,6 +42,7 @@ export class DeviceTrustPage {
     this.trustScore = (100 - (((this.totalDetections / this.totalTests) * 100)));
   }
 
+  // tag::detectEmulator[]
   detectEmulator(): void {
     if(device.isVirtual) {
       this.addDetection("Emulator Access Detected", true);
@@ -49,7 +50,9 @@ export class DeviceTrustPage {
       this.addDetection("Emulator Access Not Detected", false);
     }
   }
+  // end::detectEmulator[]
 
+  // tag::detectRoot[]
   detectRoot(): void {
     var self = this;
       IRoot.isRooted(function(rooted) {
@@ -62,7 +65,9 @@ export class DeviceTrustPage {
         console.log(error);
       });
   }
+  // end::detectRoot[]
 
+  // tag::detectDebug[]
   detectDebug(): void {
     var self = this;
     cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
@@ -75,7 +80,9 @@ export class DeviceTrustPage {
         console.error(err);
     });
   }
+  // end::detectDebug[]
 
+  // tag::detectLatestOS[]
   detectLatestOS() {
     var platform = device.platform;
     var deviceVersion = device.version;
@@ -96,7 +103,9 @@ export class DeviceTrustPage {
       }
     }
   }
+  // end::detectLatestOS[]
 
+  // tag::detectLatestOS[]
   detectDeviceLock() {
     this.pinCheck.isPinSetup()
     .then(
@@ -104,6 +113,7 @@ export class DeviceTrustPage {
       (error) =>  {this.addDetection("Device Lock Not Enabled", true)}
     );
   }
+  // end::detectLatestOS[]
 
   ionViewDidEnter(): void {
     this.performChecks();

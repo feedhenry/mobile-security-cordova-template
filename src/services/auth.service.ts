@@ -19,6 +19,7 @@ export class KeycloakService {
     this.alertCtrl = alertCtrl;
   }
 
+  // tag::init[]
   /**
   * Initialise the Keycloak Client Adapter
   */
@@ -35,6 +36,7 @@ export class KeycloakService {
           });
       });
     }
+    // end::init[]
   /**
   * Get Access Token
   */
