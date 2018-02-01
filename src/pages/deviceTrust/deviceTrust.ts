@@ -105,7 +105,7 @@ export class DeviceTrustPage {
   }
   // end::detectLatestOS[]
 
-  // tag::detectLatestOS[]
+  // tag::detectDeviceLock[]
   detectDeviceLock() {
     this.pinCheck.isPinSetup()
     .then(
@@ -113,7 +113,7 @@ export class DeviceTrustPage {
       (error) =>  {this.addDetection("Device Lock Not Enabled", true)}
     );
   }
-  // end::detectLatestOS[]
+  // end::detectDeviceLock[]
 
   ionViewDidEnter(): void {
     this.performChecks();
