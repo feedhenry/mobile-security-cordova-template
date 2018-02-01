@@ -43,6 +43,9 @@ export class DeviceTrustPage {
   }
 
   // tag::detectEmulator[]
+  /**
+  * Detect if the device is running on an emulator.
+  */
   detectEmulator(): void {
     if(device.isVirtual) {
       this.addDetection("Emulator Access Detected", true);
@@ -53,6 +56,9 @@ export class DeviceTrustPage {
   // end::detectEmulator[]
 
   // tag::detectRoot[]
+  /**
+  * Detect if the device is running Root.
+  */
   detectRoot(): void {
     var self = this;
       IRoot.isRooted(function(rooted) {
@@ -68,6 +74,9 @@ export class DeviceTrustPage {
   // end::detectRoot[]
 
   // tag::detectDebug[]
+  /**
+  * Detect if the app is running in debug mode.
+  */
   detectDebug(): void {
     var self = this;
     cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
@@ -83,6 +92,9 @@ export class DeviceTrustPage {
   // end::detectDebug[]
 
   // tag::detectLatestOS[]
+  /**
+  * Detect if the device is running the latest version of Android and iOS.
+  */
   detectLatestOS() {
     var platform = device.platform;
     var deviceVersion = device.version;
@@ -106,6 +118,9 @@ export class DeviceTrustPage {
   // end::detectLatestOS[]
 
   // tag::detectDeviceLock[]
+  /**
+  * Detect if a system device lock is set.
+  */
   detectDeviceLock() {
     this.pinCheck.isPinSetup()
     .then(
