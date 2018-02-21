@@ -24,3 +24,44 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Authentication Brute Force Detection (via Keycloak)
 - Account Lockout Policies (via Keycloak)
 - Authentication/Access Control Auditing & Logging (via Keycloak)
+
+== Work with Different Backend Services
+
+By default the app will use the backend services that are running on https://security.skunkhenry.com:8443[a dedicated OpenShift cluster] for demonstration purpose.
+
+You can also configure the app to run against different backend services:
+
+1. Update the URLs in link:src/config/keycloak.json[keycloak.json] file and the link:src/index.html[index.html].
+2. If you are using HTTPS, update the SHA1 fingerprint of the server certificate configuration in the link:src/config/keycloak.json[keycloak.json] file.
+
+To generate the SHA1 hash value of the certificate, you can use this command:
+[source, bash]
+----
+openssl s_client -servername <hostname> -connect <hostname:port> -showcerts < /dev/null 2>/dev/null   | openssl x509 -in /dev/stdin -sha1 -noout -fingerprint
+----
+
+If you are using self-signed certificate, follow the instructions in the next section.
+
+== Work with Self-signed Certificate
+
+The easiest way to support self-signed certificate is to install the CA certificate that is used to sign the certificate onto the device/simulator.
+
+1. Get the CA certificate of the server. You can use this command:
++
+[source, bash]
+----
+openssl s_client -showcerts -connect host:port
+----
++
+It will print out the full certificate chain of the server and you should save the content of the root certificate into a PEM file.
+
+2. Install the CA certificate onto the device.
++
+To install onto an iOS or Android simulator, you can simply drag & drop the certificate file over it.
++
+To install on an actual device, you can use a file sharing service or send the certificate file as an email attachment.
+
+3. Ensure the newly installed CA certificate is trusted.
++
+ - On the iOS device/simulator, go to `Settings -> General -> About -> Certificate Trust Settings` and enable full trust for the certificate.
+ - On an Android device, a wizard will be shown with instructions on how to install the certificate when it is selected in a file manager. 
