@@ -25,6 +25,23 @@ For more information, please check the https://github.com/feedhenry/mobile-secur
 - Account Lockout Policies (via Keycloak)
 - Authentication/Access Control Auditing & Logging (via Keycloak)
 
+
+== Build Instructions
+
+=== Running the App
+==== Android
+To run the app in an Android emulator, run `ionic cordova run android --emulator` from the command line.
+
+==== iOS
+To run the app in an iOS emulator run `ionic cordova run ios --emulator` from the command line.
+
+=== Building the App
+To build the application, use the following command:
+
+`ionic cordova build [<platform>]`
+
+A full list of command options is available in the https://ionicframework.com/docs/cli/cordova/build/[Ionic framework documentation].
+
 == Work with Different Backend Services
 
 By default the app will use the backend services that are running on https://security.skunkhenry.com:8443[a dedicated OpenShift cluster] for demonstration purpose.
@@ -64,4 +81,4 @@ To install on an actual device, you can use a file sharing service or send the c
 3. Ensure the newly installed CA certificate is trusted.
 +
  - On the iOS device/simulator, go to `Settings -> General -> About -> Certificate Trust Settings` and enable full trust for the certificate.
- - On an Android device, a wizard will be shown with instructions on how to install the certificate when it is selected in a file manager. 
+ - On an Android device, a wizard will be shown with instructions on how to install the certificate when it is selected in a file manager.
